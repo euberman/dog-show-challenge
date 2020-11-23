@@ -1,14 +1,12 @@
 // 'use strict'
-let dogUrl; 
+const dogUrl = 'http://localhost:3000/dogs';
 let tableBody;
 let dogForm;
 let current_dog_id;
 
 document.addEventListener('DOMContentLoaded', () => {
-      dogUrl = 'http://localhost:3000/dogs';
       tableBody = document.getElementById('table-body');
       dogForm = document.getElementById('dog-form');
-
       fetchDogs();
       prepareFormEvents(); 
 });
@@ -52,7 +50,7 @@ function prepareFormEvents(){
       breed: event.target.breed.value, 
       sex: event.target.sex.value
     };
-    const dUrl = `${dogUrl}/${current_dog_id}`;
+    const dUrl = ;
     const configObject = {
       method: "PATCH",
       headers: {
@@ -61,27 +59,8 @@ function prepareFormEvents(){
       },
       body: JSON.stringify(dog)
     };
-    fetch(dUrl,configObject)
+    fetch(`${dogUrl}/${current_dog_id}`, configObject)
       .then(resp => resp.json())
       .then(json => renderDogs(json))
   });
 }
-
-
-
-
-// function myFunction() {
-//   var x = document.createElement("TR");
-//   x.setAttribute("id", "myTr");
-//   document.getElementById("myTable").appendChild(x);
-
-//   var y = document.createElement("TD");
-//   var t = document.createTextNode("new cell");
-//   y.appendChild(t);
-//   document.getElementById("myTr").appendChild(y);
-// };
-// function fetchData() {};
-// function fetchData() {};
-// function fetchData() {};
-// function fetchData() {};
-// function fetchData() {};
