@@ -59,7 +59,7 @@ function prepareFormEvents(){
       },
       body: JSON.stringify(dog)
     };
-    fetch(`${dogUrl}/${current_dog_id}`, configObject)
+    fetch(dogUrl, configObject)
       .then(resp => resp.json())
       .then(json => renderDogs(json))
   });
